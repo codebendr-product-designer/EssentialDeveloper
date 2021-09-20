@@ -7,20 +7,19 @@
 
 import Foundation
 
-public struct LoggedInUser {}
+
+//Inverse Dependency
 
 public class ApiClient {
     public static let instance = ApiClient()
     
     private init() {}
     
-    public func login(completion: (LoggedInUser) -> ()) {
+    public func execute(_ : URLRequest, completion: (Data) -> ()) {
         
     }
+   
 }
 
-public class MockApiClient: ApiClient {
-    override public func login(completion: (LoggedInUser) -> ()) {
-        
-    }
-}
+public struct LoggedInUser {}
+

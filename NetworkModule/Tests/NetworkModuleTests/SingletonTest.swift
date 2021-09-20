@@ -5,20 +5,24 @@ import UIKit
 final class SingletonTests: XCTestCase {
     
     func test_login() throws {
-        ApiClient.instance.login {
-            print($0)
+//        ApiClient.instance.login {
+//            print($0)
+//        }
+    }
+    
+    class ViewModule {
+        //two closures and an optional for the braces
+      var login: (((LoggedInUser) -> ()) -> ())?
+        
+        func load() {
+            login? {
+                
+            }
         }
+    
     }
     
     func test_mock_api() throws {
-        class ViewController: UIViewController {
-            let api = MockApiClient.instance
-            
-            override func viewDidLoad() {
-                api.login {
-                    dump($0)
-                }
-            }
-        }
+       
     }
 }
