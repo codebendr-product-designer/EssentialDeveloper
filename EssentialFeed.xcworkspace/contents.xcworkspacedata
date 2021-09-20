@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:EssentialFeediOS/EssentialFeediOS.xcodeproj">
+      location = "group:NetworkModule">
    </FileRef>
    <FileRef
-      location = "group:EssentialFeediOS/Prototype/Prototype.xcodeproj">
+      location = "group:MainApp/MainApp.xcodeproj">
    </FileRef>
 </Workspace>
