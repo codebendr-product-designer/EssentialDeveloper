@@ -1,11 +1,4 @@
 import XCTest
-@testable import NetworkModule
+import NetworkModule
 
-final class NetworkModuleTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(NetworkModule().text, "Hello, World!")
-    }
-}
+final class NetworkModuleTests: XCTestCase {}
