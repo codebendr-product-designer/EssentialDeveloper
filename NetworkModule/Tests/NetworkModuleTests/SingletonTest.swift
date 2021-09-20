@@ -16,7 +16,7 @@ final class SingletonTests: XCTestCase {
         
         func load() {
             login? {
-                
+                print($0)
             }
         }
     
