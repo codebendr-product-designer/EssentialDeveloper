@@ -1,6 +1,6 @@
 import XCTest
 import NetworkModule
-import UIKit
+
 
 final class SingletonTests: XCTestCase {
     
