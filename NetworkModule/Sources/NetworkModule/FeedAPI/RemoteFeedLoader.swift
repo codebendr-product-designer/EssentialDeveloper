@@ -1,8 +1,9 @@
 import Foundation
 
-public class RemoteFeedLoader {
-    let client: HTTPClient
-    let url: URL
+//prevent subclasses
+public final class RemoteFeedLoader {
+    private let url: URL
+    private let client: HTTPClient
     
     public init(url: URL, client: HTTPClient) {
         self.client = client
