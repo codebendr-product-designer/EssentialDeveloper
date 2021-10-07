@@ -1,15 +1,13 @@
 import Foundation
 
-
 public enum HTTPClientResult {
-    case success(HTTPURLResponse)
+    case success(Data,HTTPURLResponse)
     case failure(Error)
 }
 
 public protocol HTTPClient {
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> ())
 }
-
 
 //add final prevent subclasses
 public final class RemoteFeedLoader {
@@ -33,7 +31,8 @@ public final class RemoteFeedLoader {
         client.get(from: url) { result in
             switch result {
             case .success:
-                completion(.invalidData)
+                break
+               // completion(.invalidData)
             case .failure :
                 completion(.connectivity)
             }
