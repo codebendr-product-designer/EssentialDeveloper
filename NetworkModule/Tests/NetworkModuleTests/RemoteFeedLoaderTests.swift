@@ -32,7 +32,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         
         expect(sut, toCompleteWith: .failure(.connectivity)) {
             let clientError = NSError(domain: "Test", code: 0)
-           client.complete(with: clientError)
+            client.complete(with: clientError)
         }
     }
     
@@ -44,15 +44,15 @@ class RemoteFeedLoaderTests: XCTestCase {
                 client.complete(withStatusCode: code, data: makeItemsJSON([]), at:index)
             }
         }
-
+        
     }
     
     func test_load_deliversErrorOnNon200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
- 
+        
         expect(sut, toCompleteWith: .failure(.invalidData)) {
             let invalidJSON = Data("invalid json".utf8)
-           client.complete(withStatusCode: 200, data: invalidJSON)
+            client.complete(withStatusCode: 200, data: invalidJSON)
         }
         
     }
@@ -70,13 +70,13 @@ class RemoteFeedLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         
         let item1 = makeItem(id: UUID(),imageURL: URL(string: "https://some-image-url.com")!)
-
+        
         let item2 = makeItem(
             id: UUID(),
             description: "a description",
             location: "a location",
             imageURL: URL(string: "https://another-url.com")!)
-
+        
         let items = [item1.model, item2.model]
         
         expect(sut, toCompleteWith: .success(items)) {
@@ -84,13 +84,13 @@ class RemoteFeedLoaderTests: XCTestCase {
             client.complete(withStatusCode: 200, data: json)
         }
     }
-
+    
     //MARK: - Helper
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (
         sut: RemoteFeedLoader, client: HTTPClientSpy) {
             let client = HTTPClientSpy()
-        return (RemoteFeedLoader(url: url, client: client), client)
-    }
+            return (RemoteFeedLoader(url: url, client: client), client)
+        }
     
     private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
         
@@ -134,12 +134,12 @@ class RemoteFeedLoaderTests: XCTestCase {
         }
         
         func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
-           let response = HTTPURLResponse(
-            url: requestedURLs[index],
-            statusCode: code,
-            httpVersion: nil,
-            headerFields: nil
-           )!
+            let response = HTTPURLResponse(
+                url: requestedURLs[index],
+                statusCode: code,
+                httpVersion: nil,
+                headerFields: nil
+            )!
             messages[index].completion(.success(data, response))
         }
     }
