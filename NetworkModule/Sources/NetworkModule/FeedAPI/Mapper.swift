@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Evans Domina Attafuah on 13/10/2021.
-//
-
 import Foundation
 
 internal final class Mapper {
