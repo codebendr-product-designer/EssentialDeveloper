@@ -2,7 +2,11 @@ import Foundation
 import CloudKit
 
 //add final prevent subclasses
-public final class RemoteFeedLoader {
+public final class RemoteFeedLoader: FeedLoader {
+    func load(completion: @escaping (Error) -> ()) {
+        
+    }
+    
     private let url: URL
     private let client: HTTPClient
     
