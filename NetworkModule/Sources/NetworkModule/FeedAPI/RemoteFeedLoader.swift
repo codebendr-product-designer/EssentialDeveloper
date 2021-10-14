@@ -1,8 +1,6 @@
 import Foundation
 import CloudKit
 
-
-
 //add final prevent subclasses
 public final class RemoteFeedLoader {
     private let url: URL
@@ -30,26 +28,13 @@ public final class RemoteFeedLoader {
         client.get(from: url) { result in
             switch result {
             case let .success(data, response):
-                do {
-                    let items = try Mapper.map(data, response)
-                    completion(.success(items))
-                } catch {
-                    completion(.failure(.invalidData))
-                }
+                completion(Mapper.map(data, from: response))
             case .failure :
                 completion(.failure(.connectivity))
             }
         }
     }
-        
-    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
-        do {
-            let items = try Mapper.map(data, response)
-            return .success(items)
-        } catch {
-            return .failure(.invalidData)
-        }
-    }
+    
 }
 
 
