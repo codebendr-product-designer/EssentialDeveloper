@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Evans Domina Attafuah on 23/10/2021.
-//
-
 import Foundation
 import XCTest
 
