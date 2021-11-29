@@ -45,7 +45,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         
         XCTAssertNotNil(resultErrorFor(data: nil, response: nil, error: nil))
         XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse(), error: nil))
-        XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse(), error: nil))
+//        XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse(), error: nil))
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nil, error: nil))
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nil, error: anyNSError()))
         XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse(), error: anyNSError()))
@@ -85,8 +85,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         let receiveValues = resultValuesFor(data: data, response: response, error: nil)
         
         //THEN
-        let emptyData = Data()
-        XCTAssertEqual(receiveValues?.data, emptyData)
+        XCTAssertEqual(receiveValues?.data, data)
         XCTAssertEqual(receiveValues?.response.url, response.url)
         XCTAssertEqual(receiveValues?.response.statusCode, response.statusCode)
         
