@@ -1,32 +1,28 @@
 name: CI
 
+# Controls when the action will run. 
+# Triggers the workflow on pull request events but only for the master branch.
 on:
-  push:
-    branches: [ develop ]
   pull_request:
-    branches: [ develop ]
+    branches: [ developer ]
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "build-and-test"
   build-and-test:
-  
-    runs-on: macos-11.0
-    
-    strategy:
-      matrix:
-        xcode:
-          - '12.4'
-          - '12.5.1'
-          - '13.1'
-          
+    # The type of runner that the job will run on
+    runs-on: macos-11
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    
-      - uses: actions/checkout@v2
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_13.1.app
       
-      - name: Select Xcode ${{ matrix.xcode }}
-        run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app
-        
-      - name: Build
-        run: swift build -v
+    - name: Xcode version
+      run: /usr/bin/xcodebuild -version 
       
-      - name: Run tests
-        run: swift test -v
+    - name: Build and Test
+      run: xcodebuild clean build test -workspace EssentialFeed.xcworkspace -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" ONLY_ACTIVE_ARCH=YES
