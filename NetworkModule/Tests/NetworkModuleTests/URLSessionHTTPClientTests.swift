@@ -1,8 +1,6 @@
 import XCTest
 import NetworkModule
 
-
-
 class URLSessionHTTPClientTests: XCTestCase {
     
     override func setUp() {
@@ -94,7 +92,7 @@ class URLSessionHTTPClientTests: XCTestCase {
     //MARK: - Helpers
     func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> URLSessionHTTPClient {
         let sut = URLSessionHTTPClient()
-        trackMemoryLeak(sut, file: file, line: line)
+        trackMemoryLeaks(sut, file: file, line: line)
         return sut
     }
     

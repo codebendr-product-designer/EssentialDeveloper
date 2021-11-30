@@ -24,5 +24,8 @@ let package = Package(
         .testTarget(
             name: "NetworkModuleTests",
             dependencies: ["NetworkModule"]),
+        .testTarget(
+            name: "APIEndToEndTests",
+            dependencies: ["NetworkModule"])
     ]
 )

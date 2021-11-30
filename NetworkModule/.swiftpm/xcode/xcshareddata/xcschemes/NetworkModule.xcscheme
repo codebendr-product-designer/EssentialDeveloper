@@ -7,7 +7,7 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
@@ -17,6 +17,20 @@
                BlueprintIdentifier = "NetworkModule"
                BuildableName = "NetworkModule"
                BlueprintName = "NetworkModule"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "APIEndToEndTests"
+               BuildableName = "APIEndToEndTests"
+               BlueprintName = "APIEndToEndTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
