@@ -11,17 +11,12 @@ jobs:
   
     runs-on: macos-11.0
     
-    strategy:
-      matrix:
-        xcode:
-          - '13.1'
-          
     steps:
     
       - uses: actions/checkout@v2
       
-      - name: Select Xcode ${{ matrix.xcode }}
-        run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app
+      - name: Xcode Select
+        run: sudo xcode-select -s /Applications/Xcode_13.1.app
       
       - name: Run tests
         run: swift test -v
