@@ -28,12 +28,4 @@ jobs:
       run: /usr/bin/xcodebuild -version
       
     - name: Build and Test
-      run: xcodebuild clean build test -workspace \
-      EssentialFeed.xcworkspace -scheme "CI" \
-      CODE_SIGN_IDENTITY="" \
-      CODE_SIGNING_REQUIRED=NO \
-      -destination "platform=macOS,arch=x86_64" \
-      -sdk iphonesimulator \
-      -destination "platform=iOS,name=iPhone 13,OS=15.0" \
-      -destination "platform=iOS,name=iPad,OS=15.0"
-       ONLY_ACTIVE_ARCH=YES \
+      run: xcodebuild clean build test -workspace EssentialFeed.xcworkspace -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 13,OS=15.0" -destination "platform=iOS Simulator,name=iPad Air (4th generation),OS=15.0" ONLY_ACTIVE_ARCH=YES
