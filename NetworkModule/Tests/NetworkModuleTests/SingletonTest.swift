@@ -1,7 +1,6 @@
 import XCTest
 import NetworkModule
 
-
 final class SingletonTests: XCTestCase {
     
     func test_login() throws {
