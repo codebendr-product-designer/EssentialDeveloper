@@ -10,7 +10,7 @@ internal final class Mapper {
         }
     }
     
-    private struct Item: Decodable {
+    private struct Item: Decodable {  
         public let id: UUID
         public let description: String?
         public let location: String?
