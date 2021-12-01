@@ -147,8 +147,6 @@ class URLSessionHTTPClientTests: XCTestCase {
         return Data("any data".utf8)
     }
     
-
-    
     private func anyHTTPURLResponse() -> HTTPURLResponse {
         return HTTPURLResponse(url: .anyURL, statusCode: 200, httpVersion: nil, headerFields: nil)!
     }
@@ -185,16 +183,15 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
         
         //intercept url request
-        override class func canInit(with request: URLRequest) -> Bool {
-            requestObserver?(request)
-            return true
-        }
+        override class func canInit(with request: URLRequest) -> Bool { true }
         
-        override class func canonicalRequest(for request: URLRequest) -> URLRequest {
-            request
-        }
+        override class func canonicalRequest(for request: URLRequest) -> URLRequest { request }
         
         override func startLoading() {
+            if let requestObserver = URLProtocolStub.requestObserver {
+                client?.urlProtocolDidFinishLoading(self)
+                return requestObserver(request)
+            }
             
             if let error = Self.stub?.error {
                 client?.urlProtocol(self, didFailWithError: error)
