@@ -22,10 +22,13 @@ let package = Package(
             name: "NetworkModule",
             dependencies: []),
         .testTarget(
-            name: "NetworkModuleTests",
+            name: "FeedAPI",
             dependencies: ["NetworkModule"]),
         .testTarget(
             name: "APIEndToEndTests",
+            dependencies: ["NetworkModule"]),
+        .testTarget(
+            name: "FeedCache",
             dependencies: ["NetworkModule"])
     ]
 )

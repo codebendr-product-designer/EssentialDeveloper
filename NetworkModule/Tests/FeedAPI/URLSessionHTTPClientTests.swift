@@ -14,7 +14,7 @@ class URLSessionHTTPClientTests: XCTestCase {
     }
     
     func test_getFromURL_performsGETRequestWithURL() {
-        URLProtocolStub.startInterceptingRequests()
+      //  URLProtocolStub.startInterceptingRequests()
         let exp = expectation(description: "Wait for request.........")
   
         URLProtocolStub.observeRequests { request in
@@ -26,7 +26,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         makeSUT().get(from: .anyURL) { _ in }
         
         wait(for: [exp], timeout: 1.0)
-        URLProtocolStub.stopInterceptingRequests()
+      URLProtocolStub.stopInterceptingRequests()
     }
     
     func test_getFromURLfailsOnRequestError() {
