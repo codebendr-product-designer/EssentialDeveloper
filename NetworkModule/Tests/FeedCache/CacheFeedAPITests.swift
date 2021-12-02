@@ -27,6 +27,7 @@ final class Tests: XCTestCase {
     }
     
     func test_save_requestCacheDeletion() {
+        
         let store = FeedStore()
         let sut = LocalFeedLoader(store: store)
         let items = [uniqueItem(), uniqueItem()]
@@ -38,11 +39,11 @@ final class Tests: XCTestCase {
     
     //MARK: - Helpers
     
-    private func makeSUT() -> (sut: LocalFeedLoader, store: FeedStore) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedLoader, store: FeedStore) {
         let store = FeedStore()
         let sut = LocalFeedLoader(store: store)
-        trackMemoryLeaks(store)
-        trackMemoryLeaks(sut)
+        trackMemoryLeaks(store, file: file, line: line)
+        trackMemoryLeaks(sut, file: file, line: line)
         return (sut, store)
     }
     
