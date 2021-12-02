@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/swiftlint.yml'
-      - 'Emitron/.swiftlint.yml'
-      - 'Emitron/**/*.swift'
+      - '.swiftlint.yml'
+      - '**/*.swift'
 
 jobs:
   SwiftLint:
@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Run Swiftlint
-        run: swiftlint --config Emitron/.swiftlint.yml
+        run: swiftlint --config .swiftlint.yml
