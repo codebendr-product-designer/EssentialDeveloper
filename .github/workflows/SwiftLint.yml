@@ -1,0 +1,17 @@
+name: SwiftLint
+
+on:
+  push:
+    paths:
+      - '.github/workflows/swiftlint.yml'
+      - 'Emitron/.swiftlint.yml'
+      - 'Emitron/**/*.swift'
+
+jobs:
+  SwiftLint:
+    runs-on: macos-11
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Run Swiftlint
+        run: swiftlint --config Emitron/.swiftlint.yml
