@@ -1,14 +1,14 @@
-import Foundation
 import CloudKit
+import Foundation
 
-//add final prevent subclasses
+// add final prevent subclasses
 public final class RemoteFeedLoader: FeedLoader {
     private let url: URL
     private let client: HTTPClient
     
-    //by using Swift the error
-    //we are able to define context
-    //and use simple object names
+    // by using Swift the error
+    // we are able to define context
+    // and use simple object names
     public enum Error: Swift.Error {
         case connectivity
         case invalidData
@@ -18,6 +18,7 @@ public final class RemoteFeedLoader: FeedLoader {
     
     public init(url: URL, client: HTTPClient) {
         self.client = client
+        
         self.url = url
     }
     
@@ -27,14 +28,9 @@ public final class RemoteFeedLoader: FeedLoader {
             switch result {
             case let .success(data, response):
                 completion(Mapper.map(data, from: response))
-            case .failure :
+            case .failure:
                 completion(.failure(Error.connectivity))
             }
         }
     }
-    
 }
-
-
-
-

@@ -1,7 +1,6 @@
 import Foundation
 
-internal final class Mapper {
-    
+internal enum Mapper {
     private struct Root: Decodable {
         let items: [Item]
         
