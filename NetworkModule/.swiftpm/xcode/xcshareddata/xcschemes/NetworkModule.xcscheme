@@ -58,9 +58,21 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "NetworkModuleTests"
-               BuildableName = "NetworkModuleTests"
-               BlueprintName = "NetworkModuleTests"
+               BlueprintIdentifier = "FeedAPI"
+               BuildableName = "FeedAPI"
+               BlueprintName = "FeedAPI"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FeedCache"
+               BuildableName = "FeedCache"
+               BlueprintName = "FeedCache"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
