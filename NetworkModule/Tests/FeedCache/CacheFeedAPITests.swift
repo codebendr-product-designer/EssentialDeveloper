@@ -1,5 +1,5 @@
-import XCTest
 import NetworkModule
+import XCTest
 
 class LocalFeedLoader {
     private let store: FeedStore
@@ -30,7 +30,6 @@ protocol FeedStore {
 }
 
 class CacheFeedUseCaseTests: XCTestCase {
-    
     func test_init_doesNotMessageStoreUponCreation() {
         let (_, store) = makeSUT()
 
@@ -170,5 +169,4 @@ class CacheFeedUseCaseTests: XCTestCase {
     private func anyNSError() -> NSError {
         return NSError(domain: "any error", code: 0)
     }
-
 }
